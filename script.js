@@ -19,8 +19,8 @@ const shareBtn = document.getElementById('share-btn');
 
 const pinIcon = L.icon({
     iconUrl: PIN_URL,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40]
+    iconSize: [80, 80],
+    iconAnchor: [40, 80]
 });
 
 const urlParams = new URLSearchParams(window.location.search);
