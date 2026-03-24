@@ -1,3 +1,8 @@
+:root {
+    --itl-red: #e83421;
+    --itl-white: #e9e5e2;
+}
+
 body {
     margin: 0;
     padding: 0;
