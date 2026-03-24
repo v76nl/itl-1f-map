@@ -1,7 +1,7 @@
 :root {
     --itl-red: #e83421;
     --itl-white: #e9e5e2;
-    /* itl-blackは普通の #000 */
+    --itl-black: #000000;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 #map {
     width: 100vw;
     height: 100vh;
-    background: #0e0e0e;
+    background: var(--itl-black);
 }
 
 #share-btn {
@@ -22,8 +22,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--itl-red);
+    color: var(--itl-white);
     border: none;
     padding: 15px 40px;
     border-radius: 30px;
