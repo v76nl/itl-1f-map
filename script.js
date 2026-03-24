@@ -57,6 +57,8 @@ shareBtn.addEventListener('click', async () => {
     canvas.width = MAP_WIDTH;
     canvas.height = MAP_HEIGHT;
     const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, MAP_WIDTH, MAP_HEIGHT);
 
     const mapImg = new Image();
     mapImg.src = MAP_URL;
