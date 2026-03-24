@@ -1,5 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
-    <rect width="1000" height="1000" fill="#e0e0e0"/>
-    <rect x="200" y="200" width="300" height="400" fill="#a0c0d0"/>
-    <text x="350" y="400" font-size="40" fill="#333" text-anchor="middle">仮の建物</text>
+<svg width="600" height="1100" viewBox="0 0 600 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="1100" fill="white"/>
+<rect x="52.5" y="52.5" width="495" height="995" stroke="black" stroke-width="5"/>
+<rect x="302.5" y="52.5" width="245" height="445" stroke="black" stroke-width="5"/>
+<rect x="2.5" y="-2.5" width="143" height="300" transform="matrix(1 0 0 -1 402 795)" stroke="black" stroke-width="5"/>
+<rect x="52.5" y="502.5" width="145" height="145" stroke="black" stroke-width="5"/>
+<rect x="94.5" y="702.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="83.5" y="871.5" width="51" height="14" fill="black" stroke="black" stroke-width="5"/>
+<rect x="83.5" y="960.5" width="51" height="14" fill="black" stroke="black" stroke-width="5"/>
+<rect x="158.5" y="960.5" width="51" height="14" fill="black" stroke="black" stroke-width="5"/>
+<rect x="158.5" y="871.5" width="51" height="14" fill="black" stroke="black" stroke-width="5"/>
+<rect x="102.5" y="417.5" width="137" height="25" fill="black" stroke="black" stroke-width="5"/>
+<rect x="102.5" y="347.5" width="137" height="25" fill="black" stroke="black" stroke-width="5"/>
+<rect x="102.5" y="277.5" width="137" height="25" fill="black" stroke="black" stroke-width="5"/>
+<rect x="-2.5" y="2.5" width="7" height="103" transform="matrix(-1 0 0 1 245 860)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="-2.5" y="2.5" width="7" height="103" transform="matrix(-1 0 0 1 245 705)" fill="black" stroke="black" stroke-width="5"/>
+<rect x="165.5" y="702.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="240.5" y="193.5" width="57" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="240.5" y="133.5" width="57" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="240.5" y="74.5" width="57" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="385.5" y="847.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="385.5" y="902.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="385.5" y="957.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="457.5" y="957.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="457.5" y="902.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="457.5" y="847.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="131.5" y="763.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
+<rect x="52.5" y="263.5" width="32" height="34" fill="black" stroke="black" stroke-width="5"/>
 </svg>

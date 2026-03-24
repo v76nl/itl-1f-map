@@ -1,7 +1,7 @@
 const MAP_URL = 'map.svg';
 const PIN_URL = 'pin.png';
-const MAP_WIDTH = 1000;
-const MAP_HEIGHT = 1000;
+const MAP_WIDTH = 600;
+const MAP_HEIGHT = 1100;
 
 const map = L.map('map', {
     crs: L.CRS.Simple,
