@@ -1,5 +1,5 @@
-const MAP_URL = 'map.svg';
-const PIN_URL = 'pin.png';
+const MAP_URL = 'assets/map.svg';
+const PIN_URL = 'assets/pin.png';
 const MAP_WIDTH = 600;
 const MAP_HEIGHT = 1100;
 
