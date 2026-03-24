@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+    <rect width="1000" height="1000" fill="#e0e0e0"/>
+    <rect x="200" y="200" width="300" height="400" fill="#a0c0d0"/>
+    <text x="350" y="400" font-size="40" fill="#333" text-anchor="middle">仮の建物</text>
+</svg>
