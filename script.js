@@ -75,16 +75,24 @@ shareBtn.addEventListener('click', async () => {
 
     canvas.toBlob(async (blob) => {
         const file = new File([blob], "share.png", { type: "image/png" });
+        const shareUrl = true; // URL共有フラグ
         const shareData = {
             title: '現在地',
-            url: window.location.href,
             files: [file]
         };
+
+        if (shareUrl) {
+            shareData.url = window.location.href;
+        }
 
         if (navigator.share && navigator.canShare(shareData)) {
             await navigator.share(shareData);
         } else {
-            navigator.clipboard.writeText(window.location.href);
+            // URL共有しない場合でも、画像だけはクリップボードに保存
+            const textToCopy = shareUrl ? window.location.href : '';
+            if (textToCopy) {
+                navigator.clipboard.writeText(textToCopy);
+            }
         }
     }, 'image/png');
 });
