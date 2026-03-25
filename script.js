@@ -57,29 +57,46 @@ shareBtn.addEventListener('click', async () => {
     canvas.width = MAP_WIDTH;
     canvas.height = MAP_HEIGHT;
     const ctx = canvas.getContext('2d');
-    // ctx.fillStyle = '#000';
-    // ctx.fillRect(0, 0, MAP_WIDTH, MAP_HEIGHT);
 
-    const mapImg = new Image();
-    mapImg.src = MAP_URL;
-    await new Promise(resolve => mapImg.onload = resolve);
-    ctx.drawImage(mapImg, 0, 0, MAP_WIDTH, MAP_HEIGHT);
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, MAP_WIDTH, MAP_HEIGHT);
 
-    const pinImg = new Image();
-    pinImg.src = PIN_URL;
-    await new Promise(resolve => pinImg.onload = resolve);
+    try {
+        const mapImg = new Image();
+        mapImg.src = MAP_URL;
+        await new Promise((resolve, reject) => {
+            mapImg.onload = resolve;
+            mapImg.onerror = () => reject(new Error('マップ画像の読み込みに失敗しました'));
+        });
+        ctx.drawImage(mapImg, 0, 0, MAP_WIDTH, MAP_HEIGHT);
 
-    const pinSize = 80;
-    const pinX = x - (pinSize / 2);
-    const pinY = (MAP_HEIGHT - y) - pinSize;
-    ctx.drawImage(pinImg, pinX, pinY, pinSize, pinSize);
+        const pinImg = new Image();
+        pinImg.src = PIN_URL;
+        await new Promise((resolve, reject) => {
+            pinImg.onload = resolve;
+            pinImg.onerror = () => reject(new Error('ピン画像の読み込みに失敗しました'));
+        });
+
+        const pinSize = 80;
+        const pinX = x - (pinSize / 2);
+        const pinY = (MAP_HEIGHT - y) - pinSize;
+        ctx.drawImage(pinImg, pinX, pinY, pinSize, pinSize);
+    } catch (error) {
+        alert(error.message);
+        return; // エラー時はここで処理を止める
+    }
 
     canvas.toBlob(async (blob) => {
+        if (!blob) {
+            alert('画像の生成に失敗しました。Canvasが汚染されている可能性があります。');
+            return;
+        }
+
         const file = new File([blob], "share.png", { type: "image/png" });
         const shareUrl = false; // URL共有フラグ
         const shareData = {
             title: '現在地',
-            files: [file]
+            files: [file] // URLは入れない
         };
 
         if (shareUrl) {
@@ -90,13 +107,16 @@ shareBtn.addEventListener('click', async () => {
             if (navigator.share && navigator.canShare(shareData)) {
                 await navigator.share(shareData);
             } else {
-                // フォールバック：URLフラグが有効な場合のみURLをコピー
                 if (shareUrl) {
                     await navigator.clipboard.writeText(window.location.href);
+                    alert('URLをコピーしました');
+                } else {
+                    alert('お使いの端末は画像シェアに対応していません');
                 }
             }
         } catch (error) {
-            alert('共有に失敗しました');
+            // ユーザーがシェアシートを閉じた場合もエラーに入るためアラートではなくコンソール出力に
+            console.log('共有キャンセルまたは失敗:', error);
         }
     }, 'image/png');
 });
