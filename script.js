@@ -71,7 +71,7 @@ shareBtn.addEventListener('click', async () => {
 
     const pinSize = 80;
     const pinX = x - (pinSize / 2);
-    const pinY = (MAP_HEIGHT - y) - (pinSize / 2);
+    const pinY = (MAP_HEIGHT - y) - pinSize;
     ctx.drawImage(pinImg, pinX, pinY, pinSize, pinSize);
 
     canvas.toBlob(async (blob) => {
