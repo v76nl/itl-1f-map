@@ -69,14 +69,14 @@ shareBtn.addEventListener('click', async () => {
     pinImg.src = PIN_URL;
     await new Promise(resolve => pinImg.onload = resolve);
 
-    const pinSize = 80; // 共有画像のピンを拡大
+    const pinSize = 80;
     const pinX = x - (pinSize / 2);
     const pinY = (MAP_HEIGHT - y) - (pinSize / 2);
     ctx.drawImage(pinImg, pinX, pinY, pinSize, pinSize);
 
     canvas.toBlob(async (blob) => {
         const file = new File([blob], "share.png", { type: "image/png" });
-        const shareUrl = true; // URL共有フラグ
+        const shareUrl = false; // URL共有フラグ
         const shareData = {
             title: '現在地',
             files: [file]
@@ -86,14 +86,17 @@ shareBtn.addEventListener('click', async () => {
             shareData.url = window.location.href;
         }
 
-        if (navigator.share && navigator.canShare(shareData)) {
-            await navigator.share(shareData);
-        } else {
-            // URL共有しない場合でも、画像だけはクリップボードに保存
-            const textToCopy = shareUrl ? window.location.href : '';
-            if (textToCopy) {
-                navigator.clipboard.writeText(textToCopy);
+        try {
+            if (navigator.share && navigator.canShare(shareData)) {
+                await navigator.share(shareData);
+            } else {
+                // フォールバック：URLフラグが有効な場合のみURLをコピー
+                if (shareUrl) {
+                    await navigator.clipboard.writeText(window.location.href);
+                }
             }
+        } catch (error) {
+            alert('共有に失敗しました');
         }
     }, 'image/png');
 });
