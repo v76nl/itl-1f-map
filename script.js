@@ -69,9 +69,10 @@ shareBtn.addEventListener('click', async () => {
     pinImg.src = PIN_URL;
     await new Promise(resolve => pinImg.onload = resolve);
 
-    const pinX = x - 20;
-    const pinY = (MAP_HEIGHT - y) - 40;
-    ctx.drawImage(pinImg, pinX, pinY, 40, 40);
+    const pinSize = 80; // 共有画像のピンを拡大
+    const pinX = x - (pinSize / 2);
+    const pinY = (MAP_HEIGHT - y) - (pinSize / 2);
+    ctx.drawImage(pinImg, pinX, pinY, pinSize, pinSize);
 
     canvas.toBlob(async (blob) => {
         const file = new File([blob], "share.png", { type: "image/png" });
