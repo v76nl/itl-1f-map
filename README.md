@@ -22,9 +22,9 @@ https://itl-1f-map.vercel.app/
 
 ## 技術スタック
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
+- HTML
+- CSS
+- JavaScript
 - Leaflet (地図ライブラリ)
 
 ## ファイル構造
@@ -37,6 +37,7 @@ itl-1f-map/
 ├── assets/
 │   ├── map.svg
 │   ├── pin.svg
+│   ├── share.svg
 │   ├── favicon.svg
 │   └── apple-touch-icon.png   # Appleデバイスでのホーム画面アイコン
 ├── README.md
